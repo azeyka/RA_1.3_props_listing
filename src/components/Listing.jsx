@@ -7,8 +7,8 @@ function Listing(props) {
 
     return (
         <div className="item-list">
-            {items.map(item => 
-                (item.state === 'active' 
+            {items.map(item => (
+                    item.state === 'active' 
                 && <div className="item" key={item.listing_id}>
                     <div className="item-image">
                         <a href={item.url}>
@@ -20,7 +20,8 @@ function Listing(props) {
                         <p className="item-price">{formatPrice(item.currency_code, item.price)}</p>
                         <p className={setQuantityClass(item.quantity)}>{item.quantity} left</p>
                     </div>
-                </div>)
+                </div>
+                )
             )}       
         </div>
     )
@@ -53,6 +54,10 @@ function setQuantityClass(quantity) {
     };
 
     return 'item-quantity level-high'
+}
+
+Listing.defaultProps = {
+    items: []
 }
 
 Listing.propTypes = {
